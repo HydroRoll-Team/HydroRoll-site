@@ -19,7 +19,7 @@ export default {
 
 
 <template>
-  <div class="details" style="overflow-y:scroll;overflow-x:hidden;height:100%">
+  <div class="details" style="overflow-y:hidden;overflow-x:hidden;height:100%">
     <h3>
       {{ title }}
     </h3>
@@ -32,7 +32,7 @@ export default {
 
 
 h3 {
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   font-weight: 500;
   margin-bottom: 0.4rem;
   color: var(--color-heading);
@@ -47,7 +47,7 @@ h3 {
 @media screen and (orientation:landscape) {
   .details {
     flex: 1;
-    width: 30dvw;
+    width: 32dvw;
   }
 }
 </style>

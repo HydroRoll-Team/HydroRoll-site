@@ -116,6 +116,7 @@ i {
 
 @media screen and (orientation:landscape) {
   .messageBar {
+    height: 600px;
     margin-top: 0;
     padding: 5rem 0 5rem calc(var(--section-gap) / 2);
   }
