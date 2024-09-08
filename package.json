@@ -2,7 +2,9 @@
   "name": "hydroroll-home",
   "version": "1.0.0",
   "private": true,
-  "author": {"name": "HydroRoll-Team"},
+  "author": {
+    "name": "HydroRoll-Team"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit --skipLibCheck && vite build",
