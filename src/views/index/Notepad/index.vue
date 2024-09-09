@@ -1,18 +1,13 @@
 <script lang="ts">
+import { NotepadContent } from "@/views/index/Notepad/type";
+
 export default {
   props: {
-    title: {
-      type: String,
-      default: "1",
+    content: {
+      type: NotepadContent,
+      require: true,
+      default: new NotepadContent(),
     },
-    message: {
-      type: String,
-      require: true
-    },
-    date: {
-      type: Date,
-      default: new Date('2024-07-14T12:00:00Z')
-    }
   },
 }
 </script>
@@ -21,9 +16,9 @@ export default {
 <template>
   <div class="details" style="overflow-y:hidden;overflow-x:hidden;height:100%">
     <h3>
-      {{ title }}
+      {{ content.title }}
     </h3>
-    <v-md-preview :text="message" ></v-md-preview>
+    <v-md-preview :text="content.message" ></v-md-preview>
   </div>
 </template>
 
