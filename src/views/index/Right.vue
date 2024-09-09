@@ -1,7 +1,9 @@
 <script lang="ts">
 import Notepad from './Notepad/index.vue'
 import DocumentationIcon from '@/components/icons/IconDocumentation.vue'
-import { getChangeLog } from './Notepad/changelog'
+import { NotepadContent } from "@/views/index/Notepad/type";
+import { changelog } from './Notepad/changelog'
+
 
 
 export default {
@@ -14,27 +16,17 @@ export default {
         "敬请期待",
         "敬请期待",
       ],
-      title: "",
-      message:"",
-      changeLogMessage:"",
+      notepadContents: [] as NotepadContent[],
     }
   },
   components: {
-    Notepad,
+    Notepad: Notepad,
     DocumentationIcon
   },
   methods: {
     change_page(n: number) {
       this.mainPage = n;
-      this.title = this.tooltip[n];
-      switch (n) {
-        case 0:
-          this.message = this.changeLogMessage;
-          break;
-        default:
-          this.message = "敬请期待";
-          break;
-      }
+      return this.notepadContents[n]
     },
     getBgColor(index: number) {
       if (index < this.mainPage) {
@@ -47,10 +39,18 @@ export default {
     }
   },
   beforeCreate() {
-    getChangeLog().then(res => {
-      this.changeLogMessage = res;
-      this.change_page(this.mainPage);
-    })
+    changelog().then(res => {
+      this.notepadContents.push(res);
+    });
+    changelog().then(res => {
+      this.notepadContents.push(res);
+    });
+    changelog().then(res => {
+      this.notepadContents.push(res);
+    });
+    changelog().then(res => {
+      this.notepadContents.push(res);
+    });
   },
 }
 
@@ -58,17 +58,17 @@ export default {
 
 <template>
   <div class="messageBar">
-    <div class="options">
-      <li v-for="(item, index) in tooltip" :key="index" class="item">
-        <el-tooltip :content="item" placement="left" >
+    <ul class="options">
+      <li v-for="(item, index) in notepadContents" :key="index" class="item">
+        <el-tooltip :content="item.title" placement="left" >
           <i :style="{background:getBgColor(index)}" @mouseover="change_page(index)">
             <DocumentationIcon/>
           </i>
         </el-tooltip>
       </li>
-    </div>
+    </ul>
     <div class="messageBox">
-      <Notepad :title="title" :message="message"/>
+      <Notepad :content="notepadContents[mainPage]" />
     </div>
   </div>
 </template>
