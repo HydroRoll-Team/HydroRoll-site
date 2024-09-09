@@ -6,12 +6,14 @@
     "name": "HydroRoll-Team"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc --noEmit --skipLibCheck && vite build",
+    "dev": "farm start",
+    "build": "farm build",
     "preview": "vite preview",
     "lint": "eslint . --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@farmfe/cli": "^1.0.4",
+    "@farmfe/core": "^1.3.17",
     "@kangc/v-md-editor": "^2.3.18",
     "@mdi/font": "7.0.96",
     "axios": "^1.7.4",
