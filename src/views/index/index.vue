@@ -20,9 +20,9 @@ export default {
 
 <template>
   <header>
-    <img src="@/assets/Hydroroll-small.svg" 
-      alt="Vue logo" 
-      class="logo" 
+    <img src="@/assets/Hydroroll-small.svg"
+      alt="Vue logo"
+      class="logo"
       width="125" height="125" />
 
     <div class="wrapper">
@@ -31,7 +31,7 @@ export default {
   </header>
 
   <main class="main">
-    <video loop=true preload="auto" muted="true" autoplay @canplay="PlayOn" v-show="isplay" >
+    <video loop preload="auto" muted autoplay @canplay="PlayOn" v-show="isplay" >
       <source src="@/assets/video/bg.mp4" type="video/mp4" />
     </video>
     <Right />
@@ -75,7 +75,7 @@ video{
   min-width: 100%;
   min-height: 100%;
   width: auto;
-  height: auto; 
+  height: auto;
   z-index: -100;
   filter: grayscale(20%);
 }
