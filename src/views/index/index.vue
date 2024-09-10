@@ -54,7 +54,7 @@ header {
   header {
     place-items: center;
     flex-flow: row;
-    padding-right: calc(var(--section-gap) / 2);
+    padding-right: 0rem;
   }
 
   .logo {

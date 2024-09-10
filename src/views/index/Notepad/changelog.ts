@@ -6,7 +6,7 @@ export const changelog = async ():Promise<NotepadContent> =>
     const title = "Changelog"
     return http.get('https://api.github.com/repos/HydroRoll-Team/HydroRoll/releases/latest')
       .then(res => {
-        const message = "## " + res.data['tag_name'] + "\n" + res.data['body'];
+        const message = "## " + res.data['tag_name'] + "\n" + res.data['body'].trimEnd();
         return new NotepadContent(title,message)
       })
       .catch(err => {

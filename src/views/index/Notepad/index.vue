@@ -14,35 +14,42 @@ export default {
 
 
 <template>
-  <div class="details" style="overflow-y:hidden;overflow-x:hidden;height:100%">
+  <div class="details" style="height:100%">
     <h3>
       {{ content.title }}
     </h3>
-    <v-md-preview :text="content.message" ></v-md-preview>
+    <div class="content">
+      <v-md-preview :text="content.message"></v-md-preview>
+    </div>  
   </div>
 </template>
 
 
 <style scoped>
 
+.details {
+  flex: 1;
+  float: right;
+  height: 100%;
+  padding: 0 10dvw;
+}
 
 h3 {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 500;
   margin-bottom: 0.4rem;
   color: var(--color-heading);
 }
 
-.details {
-  flex: 1;
-  width: 60dvw;
-  float: right;
+.content {
+  overflow-x: auto;
 }
 
 @media screen and (orientation:landscape) {
   .details {
     flex: 1;
     width: 32dvw;
+    padding: 0;
   }
 }
 </style>
